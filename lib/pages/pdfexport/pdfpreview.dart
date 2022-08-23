@@ -16,7 +16,7 @@ class PdfPreviewPage extends StatelessWidget {
         title: const Text('PDF Preview'),
       ),
       body: PdfPreview(
-        build: (context) => pdfFromHtml(invoice),//makePdf(invoice),
+        build: (context) => makePdf(invoice),//makePdf(invoice),
       ),
     );
   }

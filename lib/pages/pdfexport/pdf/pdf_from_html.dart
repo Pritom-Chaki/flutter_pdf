@@ -9,7 +9,7 @@ import 'package:flutter/services.dart' show rootBundle;
 Future<Uint8List> pdfFromHtml(Invoice invoice) async {
   // final Uint8List fontData = File('assets/fonts/open-sans.ttf', ).readAsBytesSync();
   //final ttf = Font.ttf(fontData.buffer.asByteData());
-  final font = await rootBundle.load("assets/fonts/kalpurush.ttf");
+  final font = await rootBundle.load("assets/fonts/Nikosh.ttf");
   final ttf = tw.Font.ttf(font);
 
   final pdf = tw.Document(
@@ -24,7 +24,7 @@ Future<Uint8List> pdfFromHtml(Invoice invoice) async {
       build: (context) {
         return tw.Column(
           children: [
-            tw.Text('হস্তান্তর দলিল রেজিস্ট্রেশনের ধাপ সমূহ',
+            tw.Text('হস্তান্তর দলিল রে জি ধাপ সমূহ',
                 style: tw.TextStyle(font: ttf)),
             tw.Row(
               mainAxisAlignment: tw.MainAxisAlignment.spaceBetween,
