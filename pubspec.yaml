@@ -23,6 +23,9 @@ dependencies:
   open_file: ^3.2.1
   flutter_widget_from_html: ^0.8.5
   screenshot: ^1.2.3
+  pdfx: ^2.2.0
+  universal_platform: ^1.0.0+1
+  internet_file: ^1.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

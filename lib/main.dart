@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pdf/pages/invoices.dart';
 import 'package:flutter_pdf/pages/pdfexport/pdfpreview.dart';
+import 'package:flutter_pdf/pdfx/pdfx.dart';
 import 'package:flutter_pdf/s_pdf/s_pdf.dart';
 
 import 'html_pdf_pages/html_to_pdf.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HtmlToWidget(),
+      home: const PDFx(),
     );
   }
 }

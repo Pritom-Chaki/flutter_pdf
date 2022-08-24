@@ -80,7 +80,7 @@ class _GeneratePdfState extends State<GeneratePdfStatefulWidget> {
     //Create an empty file to write the PDF data
     File file = File('$path/output.pdf');
     //Write the PDF data
-    await file.writeAsBytes(bytes, flush: true);
+    await file.writeAsBytes(bytes, flush: false);
     //Open the PDF document in mobile
     OpenFile.open('$path/output.pdf');
   }
