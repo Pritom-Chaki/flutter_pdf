@@ -7,6 +7,8 @@ import 'package:flutter_full_pdf_viewer_null_safe/flutter_full_pdf_viewer.dart';
 import 'package:flutter_html_to_pdf/flutter_html_to_pdf.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../html_widget_pages/constant_data.dart';
+
 class HtmlToPdf extends StatefulWidget {
   const HtmlToPdf({Key? key}) : super(key: key);
 
@@ -15,7 +17,7 @@ class HtmlToPdf extends StatefulWidget {
 }
 
 class _HtmlToPdfState extends State<HtmlToPdf> {
-  String ? generatedPdfFilePath;
+  String? generatedPdfFilePath;
 
   @override
   void initState() {
@@ -65,31 +67,38 @@ class _HtmlToPdfState extends State<HtmlToPdf> {
     """;
 
     Directory appDocDir = await getApplicationDocumentsDirectory();
-    final targetPath = appDocDir.path;
+    const targetPath = './assets/pdf';//appDocDir.path;
     print("targetPath $targetPath");
-    const targetFileName = "example-pdf";
-
-    final generatedPdfFile = await FlutterHtmlToPdf.convertFromHtmlContent(htmlContent, targetPath, targetFileName);
-print("generatedPdfFile $generatedPdfFile");
-    generatedPdfFilePath = generatedPdfFile.path;
+    const targetFileName = "example_pdf";
+    //
+    final generatedPdfFile = await FlutterHtmlToPdf.convertFromHtmlContent(
+        ConstantData.htmlContent, targetPath, targetFileName);
+    // final generatedPdfFile = await FlutterHtmlToPdf.convertFromHtmlFilePath(
+    //     'assets/pdf/example_pdf.html', targetPath, targetFileName);
+    print("generatedPdfFile $generatedPdfFile");
+    generatedPdfFilePath = "./assets/pdf/";//generatedPdfFile.path;
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-          appBar: AppBar(),
-          body: Center(
-            child: ElevatedButton(
-              child: const Text("Open Generated PDF Preview"),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => PDFViewerScaffold(appBar: AppBar(title: const Text("Generated PDF Document")), path: generatedPdfFilePath!)),
-                );
-              },
-            ),
-          ),
-        ));
+      appBar: AppBar(),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text("Open Generated PDF Preview"),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => PDFViewerScaffold(
+                      appBar:
+                          AppBar(title: const Text("Generated PDF Document")),
+                      path: "assets/pdf")),
+            );
+          },
+        ),
+      ),
+    ));
   }
 }

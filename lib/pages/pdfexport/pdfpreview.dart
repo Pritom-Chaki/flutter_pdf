@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pdf/pages/pdfexport/pdf/pdf_from_html.dart';
-
-import 'package:printing/printing.dart';
+//import 'package:printing/printing.dart';
 import '../../models/invoice.dart';
-import 'pdf/pdfexport.dart';
+
 
 class PdfPreviewPage extends StatelessWidget {
   final Invoice invoice;
@@ -15,9 +13,9 @@ class PdfPreviewPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('PDF Preview'),
       ),
-      body: PdfPreview(
-        build: (context) => makePdf(invoice),//makePdf(invoice),
-      ),
+      // body: PdfPreview(
+      //   build: (context) => makePdf(invoice),//makePdf(invoice),
+      // ),
     );
   }
 }

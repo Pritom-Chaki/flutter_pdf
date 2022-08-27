@@ -13,7 +13,6 @@ class HtmlToWidget extends StatefulWidget {
 }
 
 class _HtmlToWidgetState extends State<HtmlToWidget> {
-
   ScreenshotController screenshotController = ScreenshotController();
   @override
   void initState() {
@@ -102,6 +101,7 @@ class _HtmlToWidgetState extends State<HtmlToWidget> {
       ),
     );
   }
+
   Future<dynamic> showCapturedWidget(
       BuildContext context, Uint8List capturedImage) {
     return showDialog(
