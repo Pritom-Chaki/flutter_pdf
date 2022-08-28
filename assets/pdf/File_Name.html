@@ -1,5 +1,3 @@
-class ConstantData {
-  static String htmlContent = """
   <!DOCTYPE html>
 <!-- saved from url=(0044)http://127.0.0.1:8001/dolil/13714/1/download -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -610,7 +608,7 @@ blockquote .small {
 blockquote footer:before,
 blockquote small:before,
 blockquote .small:before {
-    content: '\2014 \00A0';
+    content: '2014 00A0';
 }
 
 .blockquote-reverse,
@@ -637,7 +635,7 @@ blockquote.pull-right footer:after,
 blockquote.pull-right small:after,
 .blockquote-reverse .small:after,
 blockquote.pull-right .small:after {
-    content: '\00A0 \2014';
+    content: '00A0 2014';
 }
 
 address {
@@ -1899,7 +1897,7 @@ input[type="search"] {
 input[type="radio"],
 input[type="checkbox"] {
     margin: 4px 0 0;
-    margin-top: 1px \9;
+    margin-top: 1px 9;
     line-height: normal;
 }
 
@@ -1993,7 +1991,7 @@ input[type="time"],
 input[type="datetime-local"],
 input[type="month"] {
     line-height: 34px;
-    line-height: 1.42857143 \0;
+    line-height: 1.42857143 0;
 }
 
 input[type="date"].input-sm,
@@ -2001,7 +1999,7 @@ input[type="time"].input-sm,
 input[type="datetime-local"].input-sm,
 input[type="month"].input-sm {
     line-height: 30px;
-    line-height: 1.5 \0;
+    line-height: 1.5 0;
 }
 
 input[type="date"].input-lg,
@@ -2009,7 +2007,7 @@ input[type="time"].input-lg,
 input[type="datetime-local"].input-lg,
 input[type="month"].input-lg {
     line-height: 46px;
-    line-height: 1.33 \0;
+    line-height: 1.33 0;
 }
 
 _:-ms-fullscreen,
@@ -2071,7 +2069,7 @@ _:-ms-fullscreen.input-lg,
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
     position: absolute;
-    margin-top: 4px \9;
+    margin-top: 4px 9;
     margin-left: -20px;
 }
 
@@ -4350,7 +4348,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .breadcrumb li + li:before {
     padding: 0 5px;
     color: #ccc;
-    content: "/\00a0";
+    content: "/00a0";
 }
 
 .breadcrumb .active {
@@ -6230,11 +6228,11 @@ button.close {
 }
 
 .carousel-control .icon-prev:before {
-    content: '\2039';
+    content: '2039';
 }
 
 .carousel-control .icon-next:before {
-    content: '\203a';
+    content: '203a';
 }
 
 .carousel-indicators {
@@ -6256,7 +6254,7 @@ button.close {
     margin: 1px;
     text-indent: -999px;
     cursor: pointer;
-    background-color: #000 \9;
+    background-color: #000 9;
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid #fff;
     border-radius: 10px;
@@ -7103,472 +7101,4 @@ button.close {
 	
 </body></html>
   
-   """;
-
-  static String htmlContent2 = """ <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>{{*option['name']}} :: {{en2bnNumber(*dolil->code)}}</title>
-		<!-- Check if this is required
-			<link href="{{ url('public/lte/mpdf.css') }}" rel="stylesheet">
-		-->
-		<link rel="icon" href="{{ url('public/system-images/icons/'.systemInformation()->icon) }}" type="image/png">
-		<style>
-			@page {size: 8.5in 13.5in; margin-left: .85in; margin-right: .85in; margin-top: 6.1in; margin-bottom: 1.3in; footer: page-footer;}
-			@page {orphans: 4;widows: 2;}
-			@page :first {margin-top: 8.5in;}
-			.last-page {page: last_page;}
-			@page last_page {margin-top: 4in;}
-			html, body, p  {font-family: bangla, Arial, sans-serif !important; font-size: 18px !important;color: #000000;}
-			table {width: 100% !important; border-spacing: 0px !important; margin-top: 10px !important; margin-bottom: 15px !important;}
-			table caption {color: #000000 !important;}
-			table td {padding-top: 1px !important;padding-bottom: 1px !important;padding-left: 7px !important;padding-right: 7px !important; vertical-align:top;}
-			.table-non-bordered {padding-left: 0px !important;}
-			.table-bordered {border-collapse: collapse;}
-			.table-bordered td {border: 1px solid #000000;}
-			.table-bordered tr:first-child td {border-top: 0;}
-			.table-bordered tr td:first-child {border-left: 0;}
-			.table-bordered tr:last-child td {border-bottom: 0;}
-			.table-bordered tr td:last-child {border-right: 0;}
-			.text-center {text-align: center;}
-			.text-justify {text-align: justify;}
-			.mt-0 {margin-top: 0;}
-			.mb-0 {margin-bottom: 0;}
-			.break-before {page-break-before: always;break-before: always;}
-			.break-after {break-after: always;}
-			.break-inside {page-break-inside: avoid;break-inside: avoid;}
-			.break-inside-auto {page-break-inside: auto;break-inside: auto;}
-			.space-top {margin-top: 15px;}
-			.space-bottom {margin-bottom: 15px;}			
-		</style>	
-	</head>
-	
-	<body style="font-size:18px; color:#000000">
-		
-		<htmlpagefooter name="page-footer">
-			<div style="text-align: right;padding-bottom:.70in; font-size: 16px;"><small>পৃষ্ঠা {PAGENO}/{nb}</small></div>
-		</htmlpagefooter>
-		
-		<div>
-			<div class="text-center" style="margin-top: 50px;">
-				@if(isset(*dolil->officeInformation->id) && in_array(*dolil->officeInformation->dolil_type_id, [1, 2, 3, 4, 5]))
-				<strong style="border-bottom: 1px solid black">সম্পত্তি হস্তান্তর দলিল</strong>
-				@else
-				<strong style="border-bottom: 1px solid black">{{*dolil->officeInformation ? *dolil->officeInformation->dolilType->name : ''}} দলিল</strong>
-				@endif
-			</div>
-		</div>
-		
-		<div class="container mt-4">
-			<table autosize="1" class="table-bordered">
-				<tr>
-					<td style="">ক্রমিক নং -</td>
-					<td style="">বহি নং -</td>
-					<td style="">দলিল নং -</td>
-				</tr> 
-			</table>
-			
-			<div class="mt-2">
-				<strong>১। নিবন্ধন কার্যালয়ের নাম :&nbsp;</strong>{{ *dolil->officeInformation ? *dolil->officeInformation->office ? *dolil->officeInformation->office->name : '' : ''}}। 
-			</div>
-			
-			<div style="margin-top: 4px!important;">
-				<strong>২। দলিলের সার সংক্ষেপ :</strong>
-			</div>
-			
-			<table autosize="1" class="text-center table-bordered mt-0">
-				<tr>
-					<td style="">দলিলের প্রকৃতি</td>
-					<td style="">মৌজার নাম</td>
-					<td style="">সিটি কর্পোরেশন/পৌরসভা/ইউনিয়ন</td>
-					<td style="">থানা/উপজেলা</td>
-					<td style="">জেলা</td>
-				</tr>
-				@php
-				*mouja = '';
-				*moujaArray = [];
-				*union = '';
-				*unionArray = [];
-				if(*dolil->scheduleProperties->count() > 0){
-				*sl = 0;
-				foreach(*dolil->scheduleProperties as *key => *value){
-				if(!in_array(*value->mouja, *moujaArray)){
-				if(*sl > 0){
-				*mouja .= ', ';
-				}
-				*sl++;
-				*mouja .= *value->jl_no.' নং '.*value->mouja;
-				array_push(*moujaArray, *value->mouja);
-				}
-				}
-				
-				*sl = 0;
-				foreach(*dolil->scheduleProperties as *key => *value){
-				if(!in_array(*value->union, *unionArray)){
-				if(*sl > 0){
-				*union .= ', ';
-				}
-				*sl++;
-				*union .= *value->union;
-				array_push(*unionArray, *value->union);
-				}
-				}
-				}
-				@endphp			  
-				<tr>
-					<td style="">{{*dolil->officeInformation ? *dolil->officeInformation->dolilType->name : ''}}</td>
-					<td style="">{{en2bnNumber(*mouja)}}</td>
-					<td style="">{{en2bnNumber(*union)}}</td>
-					<td style="">{{*dolil->officeInformation ? *dolil->officeInformation->thana->name : ''}}</td>
-					<td style="">{{*dolil->officeInformation ? *dolil->officeInformation->district->name : ''}}</td>
-				</tr>
-			</table>
-			
-			<table autosize="1" class="text-center table-bordered mt-0">
-				<tr>
-					<td style="">
-						@if(isset(*dolil->officeInformation->id) && in_array(*dolil->officeInformation->dolil_type_id, [1, 2, 3, 4, 5]))হস্তান্তরিত সম্পত্তির পরিমাণ @elseসম্পত্তির পরিমাণ @endif
-					</td>					
-					<td style="">শ্রেণি</td>
-					<td style="">
-						@if(isset(*dolil->officeInformation->id) && in_array(*dolil->officeInformation->dolil_type_id, [9]))মঞ্জুরীকৃত ঋণের পরিমাণ @elseমূল্য (অংকে ও কথায়) @endif
-					</td>
-				</tr>
-				
-				@php
-				*total_land = 0;
-				*unitOfLandName = '';
-				*classes = [];
-				*infrastructures = 0;
-				
-				if(isset(*dolil->officeInformation->developmentAuthority->id)){
-				if(isset(*dolil->scheduleProperties[0])){
-				foreach (*dolil->scheduleProperties as *key => *schedule){
-				*total_land += *schedule->daDetails ? *schedule->daDetails->total_land : 0;
-				*unitOfLandName = *schedule->daDetails ? *schedule->daDetails->unitOfLand ? *schedule->daDetails->unitOfLand->name : '' : '';
-				
-				*infrastructures += *schedule->daDetails ? *schedule->daDetails->total_infrastructure : 0;
-				}
-				}
-				} else {
-				if(isset(*dolil->scheduleProperties[0])){
-				foreach (*dolil->scheduleProperties as *key => *schedule){
-				if(isset(*schedule->ledgers[0])){
-				foreach (*schedule->ledgers as *key => *ledger) {
-				*total_land += *ledger->spots->sum('transferred_land');
-				*this_classes = *ledger->spots->pluck('class')->toArray();
-				if(isset(*this_classes[0])){
-				foreach (*this_classes as *key => *class) {
-				if(!in_array(en2bnNumber(*class), *classes)){
-				array_push(*classes, en2bnNumber(*class));
-				}
-				}
-				}
-				}
-				}
-				*unitOfLandName = *schedule->unitOfLand ? *schedule->unitOfLand->name : '';
-				*infrastructures += *schedule->infrastructures->sum('value');
-				}
-				}
-				}
-				
-				*classes = implode(', ', *classes);
-				
-				@endphp
-				
-				<tr>
-					<td style="">
-						{{en2bnNumber(minMaxDecimal(*total_land, 2))}} ({{bnNumberToWord(minMaxDecimal(*total_land, 2))}}) {{*unitOfLandName}}
-						<br>                
-						@if(isset(*dolil->officeInformation->has_infrastructure) && *dolil->officeInformation->has_infrastructure == 1)
-						স্থাপনার পরিমাপঃ {{en2bnNumber(*infrastructures).' বর্গফুট'}}
-						@endif                
-					</td>
-					<td style="">
-						{{*classes}}
-					</td>
-					<td style="">
-						@if(isset(*dolil->officeInformation->id) && in_array(*dolil->officeInformation->dolil_type_id, [1,2,3,4,5,6,7,8,10,11]))
-						
-						{{en2bnNumber(bdt(*dolil->price ? *dolil->price->total_land_value+*dolil->price->total_installation_cost : 0))}}/- ({{trim(bnNumberToWord(en2bnNumber(*dolil->price ? *dolil->price->total_land_value+*dolil->price->total_installation_cost : 0)))}}) টাকা মাত্র।
-						<br>
-						@if(isset(*dolil->officeInformation->has_infrastructure) && *dolil->officeInformation->has_infrastructure == 1)
-						@if (!empty(*dolil->price->total_installation_cost))
-						জমির মুল্য - {{en2bnNumber(bdt(*dolil->price ? *dolil->price->total_land_value : 0))}}/- টাকা। 
-						<br>
-						স্থাপনার মুল্য - {{en2bnNumber(bdt(*dolil->price ? *dolil->price->total_installation_cost : 0))}}/- টাকা। 
-						@endif
-						@endif
-						
-						@elseif(isset(*dolil->officeInformation->id) && in_array(*dolil->officeInformation->dolil_type_id, [9]))
-						{{en2bnNumber(bdt(*dolil->ownership? *dolil->ownership->loan_amount : ''))}}/- টাকা। 
-						@else
-						প্রযোজ্য নয়
-						@endif
-					</td>
-				</tr> 
-			</table>
-			
-			<pagebreak></pagebreak>
-			
-			<!-- Start Buyers Name and Address Section -->
-			<div class="">
-				<strong>৩। দলিল গ্রহীতা/গ্রহীতাগনের নাম ও ঠিকানা :</strong>				
-				@if (isset(*dolil->buyers[0]))          
-				@foreach (*dolil->buyers as *key =>*buyer)
-				<div class="space-bottom">
-					<table autosize="1" class="table-non-bordered break-inside mb-0 mt-0">
-						<tr>
-							<td style="width:80%; padding:0;">
-								<table autosize="1" class="mt-0 mb-0" style="padding:0;">
-									<tr>
-										<td style="width:32%">@if(*dolil->buyers->count() >1) {{en2bnNumber(*key+1).')'}} @endif নাম</td>
-										<td style="width:4%">:</td>
-										<td style="width:64%">{{*buyer->name}}</td>
-									</tr>
-									@if(*buyer->is_organization == 0)
-									<tr>
-										<td style="">পিতার নাম </td>
-										<td style="">:</td>
-										<td style="">{{*buyer->fathers_name}}</td>
-									</tr>
-									@if (!empty(*buyer->spouse_name))
-									<tr>
-										<td style="">স্বামীর নাম</td>
-										<td style="">:</td>
-										<td style="">@if (!empty(*buyer->spouse_name)){{*buyer->spouse_name}}@else প্রযোজ্য নয় @endif </td>	
-									</tr>
-									@endif
-									<tr>
-										<td style="">মাতার নাম </td>
-										<td style="">:</td>
-										<td style="">{{*buyer->mothers_name}}</td>
-									</tr>
-									<tr>
-										<td style="">জন্ম তারিখ </td>
-										<td style="">:</td>
-										<td style="">{{en2bnNumber(!empty(*buyer->date_of_birth) ? date('d-m-Y', strtotime(*buyer->date_of_birth)) : '')}} খ্রি.</td>
-									</tr>								
-									<tr>
-										<td style="">ধর্ম</td>
-										<td style="">:</td>
-										<td style="">{{*buyer->religion->name}}</td>
-									</tr>								
-									<tr>
-										<td style="">পেশা</td>
-										<td style="">:</td>
-										<td style="">{{*buyer->occupation->name}}</td>
-									</tr>								
-									<tr>
-										<td style="">জাতীয়তা</td>
-										<td style="">:</td>
-										<td style="">{{*buyer->nationality}}</td>
-									</tr>
-									<tr>
-										<td style="">
-											{{ array_key_exists(*buyer->identity, identity()) ? identity()[*buyer->identity] : '' }}
-										</td>
-										<td style="">:</td>
-										<td style="">{{en2bnNumber(*buyer->nid_no)}}</td>
-									</tr>
-									@endif
-									@if (!empty(*buyer->tin_no))
-									<tr>
-										<td style="">টি.আই.এন</td>
-										<td style="">:</td>
-										<td style="">{{!empty(*buyer->tin_no) ? en2bnNumber(*buyer->tin_no) : ''}}</td>
-									</tr>
-									@endif
-								</table>
-							</td>
-							<td style="width: 20%;text-align: center; vertical-align: middle;">
-								@if(*buyer->is_organization == 0)
-								<table autosize="1" class="table-bordered">
-									<tr style="">
-										<td style="width:25mm; height:35mm; vertical-align: middle;">
-											<span style="font-size:12px;">সম্প্রতি তোলা পাসপোর্ট আকারের ছবি সংযুক্ত করতে হবে।<br>
-												স্বাক্ষর এবং টিপসহি এমনভাবে প্রদান করিতে হইবে যেন উহা ছবি এবং কাগজ উভয়ের উপর পড়ে।
-											</span>
-										</td>
-									</tr>
-								</table>
-								@endif
-							</td>
-						</tr>
-					</table>
-					
-					@php
-					*buyer_per_address = *buyer->addresses->where('address_type',1)->first();
-					*buyer_pre_address = *buyer->addresses->where('address_type',2)->first();
-					@endphp
-					<table autosize="1" class="table-bordered mb-0">
-						<tr >
-							<td colspan="2" style="">স্থায়ী ঠিকানা</td>
-							
-							<td colspan="2" style="">বর্তমান ঠিকানা</td>
-						</tr> 
-						<tr>
-							<td style="width:18%">গ্রাম/বাড়ি/হোল্ডিং/রোড/ব্লক/সেক্টর</td>
-							<td style="">{{*buyer_per_address->address}}</td>
-							<td style="width:18%">গ্রাম/বাড়ি/হোল্ডিং/রোড/ব্লক/সেক্টর</td>
-							<td style="">{{*buyer_pre_address->address}}</td>
-						</tr>
-						<tr>
-							<td style="">ডাকঘর</td>
-							<td style="">{{*buyer_per_address->post_office}}</td>
-							<td style="">ডাকঘর</td>
-							<td style="">{{*buyer_pre_address->post_office}}</td>
-						</tr>
-						<tr>
-							<td style="">থানা/উপজেলা</td>
-							<td style="">{{*buyer_per_address->thana->name}}</td>
-							<td style="">থানা/উপজেলা</td>
-							<td style="">{{*buyer_pre_address->thana->name}}</td>
-						</tr>
-						
-						<tr>
-							<td style="">জেলা</td>
-							<td style="">{{*buyer_per_address->district->name}}</td> 
-							<td style="">জেলা</td>
-							<td style="">{{*buyer_pre_address->district->name}}</td>
-						</tr>
-					</table>
-				</div>
-				@endforeach
-				@endif
-			</div>
-			<!--End Buyers Name and Address Section -->
-			
-			<!--Start Sellers Name and Address Section -->
-			<div class="break-inside" style="">
-				<strong>৪। দলিল দাতা/দাতাগণের নাম ও ঠিকানা :</strong>
-				@if (isset(*dolil->sellers[0]))
-				@foreach (*dolil->sellers as *key =>*seller)
-				<div class="space-bottom">
-					<table autosize="1" class="table-non-bordered break-inside mb-0 mt-0">
-						<tr>
-							<td style="width:80%; padding:0;">
-								<table autosize="1" class="mt-0 mb-0" style="padding:0;">
-									<tr>
-										<td style="width:32%">@if(*dolil->sellers->count() >1) {{en2bnNumber(*key+1).')'}} @endif নাম</td>
-										<td style="width:4%">:</td>
-										<td style="width:64%">{{*seller->name}}</td>
-									</tr>
-									@if(*seller->is_organization == 0)
-									<tr>
-										<td style="width:32%">পিতার নাম </td>
-										<td style="width:4%">:</td>
-										<td style="width:64%">{{*seller->fathers_name}}</td>
-									</tr>
-									@if (!empty(*seller->spouse_name))
-									<tr>					
-										<td style="width:32%">স্বামীর নাম</td>
-										<td style="width:4%">:</td>						
-										<td style="width:64%">@if (!empty(*seller->spouse_name)){{*seller->spouse_name}}@else প্রযোজ্য নয় @endif </td>	
-									</tr>
-									@endif
-									<tr>
-										<td style="width:32%">মাতার নাম </td>
-										<td style="width:4%">:</td>
-										<td style="width:64%">{{*seller->mothers_name}}</td>
-									</tr>
-									<tr>
-										<td style="width:32%">জন্ম তারিখ </td>
-										<td style="width:4%">:</td>
-										<td style="width:64%">{{en2bnNumber(!empty(*seller->date_of_birth) ? date('d-m-Y', strtotime(*seller->date_of_birth)) : '')}} খ্রি.</td>
-									</tr>
-									<tr>
-										<td style="width:32%">ধর্ম</td>
-										<td style="width:4%">:</td>
-										<td style="width:64%">{{*seller->religion->name}}</td>
-									</tr>							
-									<tr>
-										<td style="width:32%">পেশা</td>
-										<td style="width:4%">:</td>
-										<td style="width:64%">{{*seller->occupation->name}}</td>
-									</tr>							
-									<tr>
-										<td style="width:32%">জাতীয়তা</td>
-										<td style="width:4%">:</td>
-										<td style="width:64%">{{*seller->nationality}}</td>
-									</tr>							
-									<tr>
-										<td style="width:32%">{{ array_key_exists(*seller->identity, identity()) ? identity()[*seller->identity] : '' }}</td>
-										<td style="width:4%">:</td>
-										<td style="width:64%">{{en2bnNumber(*seller->nid_no)}}</td>
-									</tr>
-									@endif
-									@if (!empty(*seller->tin_no))
-									<tr>
-										<td style="width:32%">টি.আই.এন</td>
-										<td style="width:4%">:</td>
-										<td style="width:64%">{{!empty(*seller->tin_no) ? en2bnNumber(*seller->tin_no) : ''}}</td>
-									</tr>
-									@endif
-								</table>
-							</td>
-							<td style="width: 20%;text-align: center; vertical-align: middle;">
-								@if(*seller->is_organization == 0)
-								<table autosize="1" class="table-bordered">
-									<tr style="">
-										<td style="width:25mm; height:35mm; vertical-align: middle;">
-											<span style="font-size:12px;">সম্প্রতি তোলা পাসপোর্ট আকারের ছবি সংযুক্ত করতে হবে।<br>
-												স্বাক্ষর এবং টিপসহি এমনভাবে প্রদান করিতে হইবে যেন উহা ছবি এবং কাগজ উভয়ের উপর পড়ে।
-											</span>
-										</td>
-									</tr>
-								</table>
-								@endif
-							</td>
-						</tr>
-					</table>
-					
-					@php
-					*seller_per_address = *seller->addresses->where('address_type',1)->first();
-					*seller_pre_address = *seller->addresses->where('address_type',2)->first();
-					@endphp
-					<table autosize="1" class="table-bordered break-inside mb-0">
-						<tr>
-							<td colspan="2" style="">স্থায়ী ঠিকানা</td>
-							
-							<td colspan="2" style="">বর্তমান ঠিকানা</td>
-						</tr> 
-						<tr>
-							<td style="width:18%">গ্রাম/বাড়ি/হোল্ডিং/রোড/ব্লক/সেক্টর</td>
-							<td style="">{{*seller_per_address->address}}</td>
-							<td style="width:18%">গ্রাম/বাড়ি/হোল্ডিং/রোড/ব্লক/সেক্টর</td>
-							<td style="">{{*seller_pre_address->address}}</td>
-						</tr>
-						<tr>
-							<td style="">ডাকঘর</td>
-							<td style="">{{*seller_per_address->post_office}}</td>
-							<td style="">ডাকঘর</td>
-							<td style="">{{*seller_pre_address->post_office}}</td>
-						</tr>
-						<tr>
-							<td style="">থানা/উপজেলা</td>
-							<td style="">{{*seller_per_address->thana->name}}
-							</td><td style="">থানা/উপজেলা</td>
-							<td style="">{{*seller_pre_address->thana->name}}</td>
-						</tr>
-						
-						<tr>
-							<td style="">জেলা</td>
-							<td style="">{{*seller_per_address->district->name}}
-							</td> 
-							<td style="">জেলা</td>
-							<td style="">{{*seller_pre_address->district->name}} 
-							</td>
-						</tr>
-					</table>
-				</div>
-				@endforeach
-				@endif
-			</div>
-			<!--End Sellers Name and Address Section -->
-
-	</body>
-</html>		""";
-}
+   

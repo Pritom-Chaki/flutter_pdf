@@ -62,14 +62,14 @@ class _HtmlToPdfPageState extends State<HtmlToPdfPage> {
       body: Center(
         child: ElevatedButton(
           onPressed: () async{
-            convert(ConstantData.htmlContent,"File Name");
+            convert(ConstantData.htmlContent,"File_Name");
             var targetPath2 = await _localPath;  //  file store path is required for open the file and send to the next screen
 
             Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => CertificateDownload(
-                    certificateData: "File Name",certificatePath: targetPath2.toString(), // File name is that name that was open in next screen
+                    certificateData: "File_Name",certificatePath: targetPath2.toString(), // File name is that name that was open in next screen
                   ),
                 ));
           },
@@ -102,11 +102,12 @@ class _HtmlToPdfPageState extends State<HtmlToPdfPage> {
           directory = await getExternalStorageDirectory();
         }
       } else{
-        directory = await getApplicationSupportDirectory();
+       directory = await getApplicationDocumentsDirectory();
+       // directory = "./assets/pdf";
       }
     } catch (err, stack) {
       print("Can-not get download folder path");
     }
-    return directory?.path;
+    return "./assets/pdf"; //directory?.path;
   }
 }
