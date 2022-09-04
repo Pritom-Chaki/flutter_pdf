@@ -28,6 +28,7 @@ dependencies:
   internet_file: ^1.2.0
   syncfusion_flutter_pdfviewer: ^20.1.58-beta
   flutter_html: ^2.2.1
+#  open_filex:
 
 dev_dependencies:
   flutter_test:

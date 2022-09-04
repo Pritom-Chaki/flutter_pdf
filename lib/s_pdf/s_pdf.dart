@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+// import 'package:open_filex/open_filex.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:open_file/open_file.dart';
@@ -101,7 +102,7 @@ class _GeneratePdfState extends State<GeneratePdfStatefulWidget> {
 
     //Open the PDF document in mobile
     OpenFile.open('$path/output.pdf');
-
+    // OpenFilex.open('$path/output.pdf');
   }
 
   Future<PdfFont> getFont(TextStyle style) async {
