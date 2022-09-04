@@ -44,7 +44,7 @@ class _GeneratePdfState extends State<GeneratePdfStatefulWidget> {
                   backgroundColor: MaterialStateProperty.resolveWith(
                       (states) => Colors.blue)),
               child: const Text(
-                'Draw Text, Generate PDF',
+                'হস্তান্তর দলিল রেজিস্ট্রেশনের',
                 style: TextStyle(color: Colors.white),
               ),
             )
@@ -66,44 +66,24 @@ class _GeneratePdfState extends State<GeneratePdfStatefulWidget> {
 
     //Create the PDF document
     PdfDocument document =
-        PdfDocument(conformanceLevel: PdfConformanceLevel.a3b, )
-          ..pages.add().graphics.drawString(
-              'Hello World! হস্তান্তর দলিল রেজিস্ট্রেশনের',
-              PdfTrueTypeFont(await _readData('./assets/fonts/Nikosh.ttf'), 12),
-              bounds: const Rect.fromLTWH(20, 20, 200, 50));
+        PdfDocument();
+          // ..pages.add().graphics.drawString(
+          //     'Hello World! হস্তান্তর দলিল রেজিস্ট্রেশনের',
+          //     PdfTrueTypeFont(await _readData('./assets/fonts/Nikosh.ttf'), 12),
+          //     bounds: const Rect.fromLTWH(20, 20, 200, 50));
 
-    //Creates an attachment
-    PdfAttachment attachment = PdfAttachment('example_pdf.html',
-    File('./assets/pdf/example_pdf.html').readAsBytesSync(),
-        description: 'Example HTML', mimeType: 'application/html')
-      ..relationship = PdfAttachmentRelationship.alternative
-      ..modificationDate = DateTime.now();
-    PdfAttachment attachment2 = PdfAttachment('example.txt',
-        File('./assets/pdf/example.txt').readAsBytesSync(),
-        description: 'Example txt', mimeType: 'application/txt')
-      ..relationship = PdfAttachmentRelationship.alternative
-      ..modificationDate = DateTime.now();
 
-    print("attachment ${attachment}");
-    print("attachment2 ${attachment2.fileName}");
-    //Adds the attachment to the document
-    final vari = document.attachments.add(attachment);
-    print("Vari $vari");
-    final vari2 = document.attachments.add(attachment2);
-    print("Vari2 $vari2");
-    document.attachments.add(PdfAttachment(
-        'AdventureCycle.txt', utf8.encode(text),
-        description: 'Adventure Works Cycles', mimeType: 'application/txt'));
-    //   //Add a page
-    //   PdfPage page = document.pages.add();
-    //   final Uint8List fontData = File('assets/fonts/Nikosh.ttf').readAsBytesSync();
-    //   //Create a PDF true type font object.
-    //  final PdfFont font = PdfTrueTypeFont(fontData, 12, );
-    //   //Set the font
-    // // PdfFont font = await getFont(GoogleFonts.anekBangla());
-    //   //Draw a text
-    //   page.graphics.drawString('Hello World হস্তান্তর দলিল রেজিস্ট্রেশনের ধাপ সমূহ', font,
-    //       brush: PdfBrushes.black, bounds: const Rect.fromLTWH(0, 0, 200, 30));
+      //Add a page
+      PdfPage page = document.pages.add();
+      final Uint8List fontData = File('assets/fonts/kalpurush.ttf').readAsBytesSync();
+      print("fontData == $fontData");
+      //Create a PDF true type font object.
+  final PdfFont font = PdfTrueTypeFont(fontData, 12, );
+      //Set the font
+  // PdfFont font = await getFont(GoogleFonts.notoSansBengali());
+      //Draw a text
+      page.graphics.drawString('হস্তান্তর দলিল রেজিস্ট্রেশনের ধাপ সমূহ', font,
+          brush: PdfBrushes.black, bounds: const Rect.fromLTWH(0, 0, 200, 30));
     //Save the document
    // File('output.pdf').writeAsBytes(document.save());
     List<int> bytes = await document.save();
@@ -121,20 +101,25 @@ class _GeneratePdfState extends State<GeneratePdfStatefulWidget> {
 
     //Open the PDF document in mobile
     OpenFile.open('$path/output.pdf');
-    document.dispose();
+
   }
 
   Future<PdfFont> getFont(TextStyle style) async {
     //Get the external storage directory
     Directory directory = await getApplicationSupportDirectory();
     //Create an empty file to write the font data
-    File file = File('${directory.path}/${style.fontFamily}.ttf');
+   File file = File('${directory.path}\\${style.fontFamily}.ttf');
+   // File file = File('./assets/font/${style.fontFamily}.ttf');
+    print("FILE ==  $file");
     List<int>? fontBytes;
     //Check if entity with the path exists
+    print("file.existsSync() ==  ${file.existsSync()}");
     if (file.existsSync()) {
       fontBytes = await file.readAsBytes();
+      print("fontBytes ==  $fontBytes");
     }
     if (fontBytes != null && fontBytes.isNotEmpty) {
+      print("fontBytes == $fontBytes");
       //Return the google font
       return PdfTrueTypeFont(fontBytes, 12);
     } else {
@@ -142,4 +127,5 @@ class _GeneratePdfState extends State<GeneratePdfStatefulWidget> {
       return PdfStandardFont(PdfFontFamily.helvetica, 12);
     }
   }
-}
+  }
+
