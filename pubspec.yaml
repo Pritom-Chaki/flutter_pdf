@@ -52,7 +52,7 @@ flutter:
     - family: Kalpurush
       fonts:
         - asset: assets/fonts/kalpurush_ANSI.ttf
-        - asset: assets/fonts/kalpurush.ttf.
+        - asset: assets/fonts/kalpurush.ttf
     - family: Shurjo
       fonts:
         - asset: assets/fonts/Shurjo_UNICODE_Regular.ttf

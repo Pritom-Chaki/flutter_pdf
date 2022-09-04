@@ -9,9 +9,14 @@ import 'package:syncfusion_flutter_pdf/pdf.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:open_file/open_file.dart';
 
-class GeneratePdfWidget extends StatelessWidget {
+class GeneratePdfWidget extends StatefulWidget {
   const GeneratePdfWidget({Key? key}) : super(key: key);
 
+  @override
+  State<GeneratePdfWidget> createState() => _GeneratePdfWidgetState();
+}
+
+class _GeneratePdfWidgetState extends State<GeneratePdfWidget> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -29,6 +34,8 @@ class GeneratePdfStatefulWidget extends StatefulWidget {
 }
 
 class _GeneratePdfState extends State<GeneratePdfStatefulWidget> {
+
+  TextEditingController textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,14 +46,33 @@ class _GeneratePdfState extends State<GeneratePdfStatefulWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextButton(
-              onPressed: generatePdf,
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.resolveWith(
-                      (states) => Colors.blue)),
-              child: const Text(
-                'হস্তান্তর দলিল রেজিস্ট্রেশনের',
-                style: TextStyle(color: Colors.white),
+            TextField(
+              controller: textEditingController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: "Input",
+                labelStyle: TextStyle(fontSize: 14.0),
+                hintStyle: TextStyle(
+                  color: Colors.red,
+                  fontSize: 10.0,
+                ),
+              ),
+              style: TextStyle(
+                fontSize: 14.0,
+              ),
+            ),
+            SizedBox(height: 20,),
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: TextButton(
+                onPressed: ()=>generatePdf(textEditingController),
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.resolveWith(
+                        (states) => Colors.blue)),
+                child: const Text(
+                  'হস্তান্তর দলিল রেজিস্ট্রেশনের',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             )
           ],
@@ -55,7 +81,7 @@ class _GeneratePdfState extends State<GeneratePdfStatefulWidget> {
     );
   }
 
-  Future<void> generatePdf() async {
+  Future<void> generatePdf(TextEditingController textEditingController) async {
     //read font data
     Future<List<int>> _readData(String name) async {
       final ByteData data = await rootBundle.load(name);
@@ -76,14 +102,19 @@ class _GeneratePdfState extends State<GeneratePdfStatefulWidget> {
 
       //Add a page
       PdfPage page = document.pages.add();
-      final Uint8List fontData = File('assets/fonts/kalpurush.ttf').readAsBytesSync();
+      var dir = await getTemporaryDirectory();
+      var fontFile = await File("${dir.path}/font.ttf").create();
+      var fontByteData = await rootBundle.load('assets/fonts/kalpurush.ttf');
+      await fontFile.writeAsBytes(fontByteData.buffer.asUint8List(fontByteData.offsetInBytes, fontByteData.lengthInBytes));
+
+      final Uint8List fontData = fontFile.readAsBytesSync();
       print("fontData == $fontData");
       //Create a PDF true type font object.
   final PdfFont font = PdfTrueTypeFont(fontData, 12, );
       //Set the font
   // PdfFont font = await getFont(GoogleFonts.notoSansBengali());
       //Draw a text
-      page.graphics.drawString('হস্তান্তর দলিল রেজিস্ট্রেশনের ধাপ সমূহ', font,
+      page.graphics.drawString(textEditingController.text, font,
           brush: PdfBrushes.black, bounds: const Rect.fromLTWH(0, 0, 200, 30));
     //Save the document
    // File('output.pdf').writeAsBytes(document.save());
